@@ -1,4 +1,4 @@
 # Gacha Life Unity
 [![Downloads](https://img.shields.io/github/downloads/GachaMations/Gacha-life-unity/total](https://github.com/GachaMations/Gacha-life-unity/releases)
 
-[![Discord](https://img.shields.io/discord/808039740464300104?label=discord)](https://discord.gg/MG6GQFh52U)
+[![Discord](https://img.shields.io/discord/970635565672308787?label=discord)](https://discord.gg/TtvZRQRX8n)
