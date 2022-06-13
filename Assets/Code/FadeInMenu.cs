@@ -33,4 +33,21 @@ public class FadeInMenu : MonoBehaviour
        StartCoroutine(StartingScript()); 
     }
 
+    // Update is called once per frame
+    AudioSource audioData;
+    public Sprite Menu,MenuTerms;
+    void Update()
+    {
+        if (Input.GetMouseButtonDown(0)) {
+            audioData = GetComponent<AudioSource>();
+            if(m_SpriteRenderer.sprite == Menu)
+            {
+                Debug.Log("Mouse Clicked");
+                audioData.Play(0);
+                m_SpriteRenderer.sprite = MenuTerms;
+            }
+            
+        }
+    }
+
 }
