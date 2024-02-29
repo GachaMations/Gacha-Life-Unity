@@ -70,3 +70,7 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+
+
+#Every asset used in Gacha Life. If you want to extract them, download JPEXS flash decompiler, download Gacha Life on pc, open the swf in JPEXS and extract all.
+/[Ee]xtracted/
