@@ -7,11 +7,12 @@ public class TOSScreen : MonoBehaviour
 {
     IEnumerator Menu()
     {
-      float alpha = GameObject.Find("Fade").transform.GetComponent<Renderer>().material.color.a;
+        //GameObject.Find("FadeBG").GetComponent<Renderer>().enabled = true;
+      float alpha = GameObject.Find("FadeBG").GetComponent<SpriteRenderer>().color.a;
       for (float t = 0.0f; t < 1.0f; t += Time.deltaTime / 0.25f)
       {
-          Color newColor = new Color(1, 1, 1, Mathf.Lerp(alpha,0,t));
-          GameObject.Find("Fade").transform.GetComponent<Renderer>().material.color = newColor;
+          Color newColor = new Color(0, 0, 0, Mathf.Lerp(alpha,1,t));
+          GameObject.Find("FadeBG").GetComponent<SpriteRenderer>().color = newColor;
           yield return null;
       }
       yield return new WaitForSeconds(0.5f);
@@ -19,15 +20,17 @@ public class TOSScreen : MonoBehaviour
     }
     public void Confirm()
     {
-        GetComponent<AudioSource>().Play(0);
+        GameObject.Find("FadeBG").GetComponent<AudioSource>().PlayOneShot(Resources.Load<AudioClip>("click_shorter"));
         StartCoroutine(Menu());
     }
     public void Agree() {
         GetComponent<Button>().interactable = true;
+        GameObject.Find("FadeBG").GetComponent<AudioSource>().PlayOneShot(Resources.Load<AudioClip>("click_shorter"));
         GameObject.Find("ButtonsVisual").GetComponent<Image>().sprite = Resources.Load<Sprite>("TOSAgree");
     }
     public void Disagree() {
         GetComponent<Button>().interactable = false;
+        GameObject.Find("FadeBG").GetComponent<AudioSource>().PlayOneShot(Resources.Load<AudioClip>("click_shorter"));
         GameObject.Find("ButtonsVisual").GetComponent<Image>().sprite = Resources.Load<Sprite>("TOSDisagree");
     }
 }
