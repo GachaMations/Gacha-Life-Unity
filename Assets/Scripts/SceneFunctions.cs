@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-public class FadeInMenu : MonoBehaviour
+public class SceneFunctions : MonoBehaviour
 {
     IEnumerator FadeInStart() {
         gameObject.GetComponent<SpriteRenderer>().enabled = true;
@@ -30,8 +30,14 @@ public class FadeInMenu : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         SceneManager.LoadScene("StartScreen");
     }
-    void Start() {
-        switch (SceneManager.GetActiveScene().name) {
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode) {
+        if (!GameObject.Find("File")) {
+            GameObject newFile = new GameObject("File");
+            newFile.AddComponent<SaveFile>();
+            DontDestroyOnLoad(newFile);
+        }
+        if (!GameObject.Find("FadeBG") || GameObject.Find("FadeBG") == gameObject) DontDestroyOnLoad(gameObject); else Destroy(gameObject);
+        switch (scene.name) {
             case "StartScreen":
                 StartCoroutine(FadeInStart());
                 break;
@@ -39,6 +45,15 @@ public class FadeInMenu : MonoBehaviour
                 StartCoroutine(Splash());
                 break;
         }
+    }
+    void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+    
+    void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
     void Update()
     {
