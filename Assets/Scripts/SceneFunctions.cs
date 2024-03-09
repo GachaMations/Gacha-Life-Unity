@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class SceneFunctions : MonoBehaviour
 {
-    IEnumerator FadeInStart() {
+    IEnumerator FadeIn() {
         gameObject.GetComponent<SpriteRenderer>().enabled = true;
         gameObject.GetComponent<SpriteRenderer>().color = new Color(0, 0, 0, 1);
         float alpha = transform.GetComponent<SpriteRenderer>().color.a;
@@ -39,10 +39,14 @@ public class SceneFunctions : MonoBehaviour
         if (!GameObject.Find("FadeBG") || GameObject.Find("FadeBG") == gameObject) DontDestroyOnLoad(gameObject); else Destroy(gameObject);
         switch (scene.name) {
             case "StartScreen":
-                StartCoroutine(FadeInStart());
+                StartCoroutine(FadeIn());
                 break;
             case "SplashScreen":
                 StartCoroutine(Splash());
+                break;
+            case "MainMenu":
+                GameObject.Find("File").GetComponent<SaveFile>().Save("TestFile.json", "TestKey", "TestValue");
+                StartCoroutine(FadeIn());
                 break;
         }
     }
