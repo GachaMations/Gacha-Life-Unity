@@ -72,5 +72,6 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
 
-#Every asset used in Gacha Life. If you want to extract them, download JPEXS flash decompiler, download Gacha Life on pc, open the swf in JPEXS and extract all.
+#Every asset used in Gacha Life. If you want to extract them, download JPEXS flash decompiler, download Gacha Life on pc (or android SWF), open the swf in JPEXS and extract all.
 /[Ee]xtracted/
+/[Ee]xtracted[Aa]ndroid/

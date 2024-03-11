@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 48bc6bdfab4c3054683cd7cccf209a87
+  - enabled: 1
+    path: Assets/Scenes/DataTransferTest.unity
+    guid: fdd84112ef14cd54bae022d6f4d9b4b8
   m_configObjects: {}

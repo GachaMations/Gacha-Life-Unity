@@ -6,7 +6,11 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 public class SaveFile : MonoBehaviour
 {
-    string SaveDirectory = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\GachaUnity\\Life";
+    public string GUPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\GachaUnity";
+    public string SaveDirectory = "";
+    void Awake() {
+        SaveDirectory = GUPath+"\\Life";
+    }
     public void Save(string path, string varName, string varData) {
         string purePath = SaveDirectory+"\\"+path;
         if (!File.Exists(purePath)) {

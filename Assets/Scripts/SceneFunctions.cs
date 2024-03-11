@@ -62,7 +62,7 @@ public class SceneFunctions : MonoBehaviour
     void Update()
     {
         switch (SceneManager.GetActiveScene().name) {
-            case "StartScreen":
+            case "StartScreeen":
                 if (Input.GetMouseButtonDown(0)) {
                     if(!GameObject.Find("Canvas").GetComponent<Canvas>().enabled)
                     {
