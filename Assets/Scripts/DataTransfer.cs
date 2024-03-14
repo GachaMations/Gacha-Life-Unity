@@ -105,8 +105,12 @@ public class DataTransfer : MonoBehaviour
         GameObject.Find("Status").GetComponent<Text>().text = "Server stopped.";
     }
 
-    public void GoToPlaceholder() {
+    public void OpenClient() {
         SceneManager.LoadScene("DataTransferTest");
+    }
+
+    public void closeScreen() {
+        gameObject.GetComponent<Canvas>().enabled = false;
     }
 
     void Start() {

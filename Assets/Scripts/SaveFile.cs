@@ -9,6 +9,11 @@ public class SaveFile : MonoBehaviour
     public string GUPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\GachaUnity";
     public string SaveDirectory = "";
     void Awake() {
+        if (SystemInfo.deviceType == DeviceType.Handheld) {
+            GUPath = Application.persistentDataPath;
+        } else {
+            GUPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\GachaUnity";
+        }
         SaveDirectory = GUPath+"\\Life";
     }
     public void Save(string path, string varName, string varData) {
@@ -41,8 +46,15 @@ public class SaveFile : MonoBehaviour
     }
     public string Load(string path, string varName) {
         string purePath = SaveDirectory+"\\"+path;
-        if (File.Exists(purePath)) return JObject.Parse(File.ReadAllText(purePath))[varName].ToString();
-        else return "";
+        try {
+            if (File.Exists(purePath)) return JObject.Parse(File.ReadAllText(purePath))[varName].ToString();
+            else return "";
+        }
+        catch (Exception) {
+            File.Delete(purePath);
+            Save(path, varName, "");
+            return "";
+        }
     }
 
     void OnEnable() { DontDestroyOnLoad(gameObject); }
