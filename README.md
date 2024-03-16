@@ -9,19 +9,11 @@ The main idea was for modding, and adding extra QOL features not present in the 
 
 You can clone the project and do whatever you'd like with it, but please don't take the project and mark it as your own. Removing my credits in the game is fine, just don't replace it with your own.
 
-# Why hasn't this been updated in so long
+# Why was there such a huge pause in development?
 
-This project isn't really active anymore, but it's not completely over yet. As of 25/02/24, I still have all the original project files, and still occasionally work on it every now and again. I've mainly been working on Gacha Club unity and Gacha Life 2 Unity, though those projects are private while they aren't in a useable state. It's not very easy to recreate the game either, as there are so many assets in the original games that need to be ported.
-
-It was also started when I had very little experience wih Unity, and a lot of really old code and methods of doing things are still in the project, and have been painful to use. I have started a remake of Gacha Club Unity, but I didn't realise how much I had actually done with horrible methods until I had started that, and had to redo everything.
-
-As I have gotten better, though, any newer updates to any of these projects WILL use my newer knowledge. I am still not great with using Unity, but at least i'm not using screenshots taken from the Windows version of the game anymore lmao.
-
-To some up everything above, as of making this, this is the first update to this repo in 2 years. I do not plan to make this the final one, however, and I do plan to eventually get a fully working version of these games to release (Life, Club, Life 2). It'll take more effort than I originally hoped for back in 2022, but will hopefully get somewhere.
+I had 0 updates on this entire project for around 2 years. I mostly stopped working on it, as I had been very on and off about being in the Gacha community as a whole, and when I did work on this project, it was work on Gacha Club Unity, as it's the more advanced and popular game. I recently started working again on this, however, and am still actively making progress. Gacha Club Unity is currently a privated project, and doesn't really have much anyways. once Gacha Life Unity is fully released, the Gacha Club Unity project will be remade and will be put open source.
 
 
+Unity Project Version: 2021.3.5f1
 
-Oh yeah, another reason for the huge break in the project, and the lack of videos on YouTube is because I have really been on and off of the Gacha community for quite a while. It gets a lot of hate, as the fact that this is a seperate account dedicated to that, and I am just not very creative, and that's the reason I've never really made real content on everything. With school and everything, gives even less time to be thinking about this account.
-
-
-(Last readme update: 25/02/24).
+Last readme update: 25/02/24
