@@ -28,6 +28,8 @@ public class TOSScreen : MonoBehaviour
             sFuncs.Transfer = false;
             GameObject.Find("Transfer").GetComponent<Canvas>().enabled = true;
             GetComponent<Canvas>().enabled = false;
+
+            SceneManager.LoadScene("DataTransferTest");
         }
     }
     public void Agree() {
