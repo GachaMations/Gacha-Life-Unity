@@ -1,20 +1,3 @@
-/*
-
-    --WARNING-- This code is AWFUL.
-            
-    This script will NOT be used for the final release. This
-    is a testing script to get the basic systems of Data Transfer
-    working.
-
-    The main parts of this will be used for the actual data transfer page,
-    But the entire script will be remade cleaner.
-
-    (half this code is copy and pasted from stackoverflow lmao)
-
-
-*/
-
-
 using System;
 using System.Collections;
 using System.IO;
@@ -22,98 +5,139 @@ using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
-using System.Diagnostics;
+using Unity.SharpZipLib.Utils;
 using UnityEngine;
 using UnityEngine.UI;
-using Unity.SharpZipLib.Utils;
 using UnityEngine.SceneManagement;
 using UnityEngine.Networking;
+
 public class DataTransfer : MonoBehaviour
 {
     private static HttpListener listener;
-    private static bool HostFiles = true;
-    //private static string ZipData;
-    private static byte[] data;
-    private static async void Handle()
+    private static bool hostFiles = true;
+    private byte[] data;
+    private string saveDirectory = "";
+
+    private async void HandleRequests()
     {
-        while (HostFiles) {
-            HttpListenerContext ctx = await listener.GetContextAsync();
-            HttpListenerRequest req = ctx.Request;
-            HttpListenerResponse resp = ctx.Response;
-            resp.ContentEncoding = Encoding.UTF8;
-            resp.ContentLength64 = data.LongLength;
-            await resp.OutputStream.WriteAsync(data, 0, data.Length);
-            resp.Close();
-        }
-        HostFiles = true;
-    }
-    string SaveDirectory = "";
-    public void StartServer()
-    {
-        GameObject.Find("Status").GetComponent<Text>().text = "Zipping Save Files";
-        ZipUtility.CompressFolderToZip(SaveDirectory+"\\Life.zip",null,SaveDirectory+"\\Life");
-        GameObject.Find("Status").GetComponent<Text>().text = "Reading zip's bytes";
-        try {
-            data = File.ReadAllBytes(SaveDirectory+"\\Life.zip");
-        }
-        catch (IOException) {
-            GameObject.Find("Status").GetComponent<Text>().text = "File is bigger than 2gb (somehow)";
-            return;
-        }
-        GameObject.Find("Status").GetComponent<Text>().text = "Starting Server";
-        var host = Dns.GetHostEntry(Dns.GetHostName());
-        var privIp = "IP NOT FOUND";
-        foreach (var ip in host.AddressList)
+        while (hostFiles)
         {
-            if (ip.AddressFamily == AddressFamily.InterNetwork) privIp = ip.ToString();
+            try
+            {
+                HttpListenerContext context = await listener.GetContextAsync();
+                HttpListenerResponse response = context.Response;
+                response.ContentEncoding = Encoding.UTF8;
+                response.ContentLength64 = data.LongLength;
+                await response.OutputStream.WriteAsync(data, 0, data.Length);
+                response.Close();
+            }
+            catch (Exception ex)
+            {
+                Debug.LogError("Error handling request: " + ex.Message);
+            }
         }
-        var Port = int.Parse(gameObject.GetComponent<InputField>().text);
-        listener = new HttpListener();
-        listener.Prefixes.Add("http://*:"+Port+"/");
-        listener.Prefixes.Add("http://"+privIp+":"+Port+"/");
-        listener.Prefixes.Add("http://127.0.0.1:"+Port+"/");
-        listener.Prefixes.Add("http://localhost:"+Port+"/");
-        listener.Start();
-        Task t = new Task(Handle);
-        t.Start();
-        GameObject.Find("Status").GetComponent<Text>().text = "IP: "+privIp+"\nPort: "+Port;
     }
-    IEnumerator StartClientI() {
-        UnityWebRequest www = new UnityWebRequest("http://"+GameObject.Find("IP").GetComponent<InputField>().text+":"+GameObject.Find("CLPort").GetComponent<InputField>().text);
-        www.downloadHandler = new DownloadHandlerBuffer();
+
+    private IEnumerator StartClientCoroutine(string ipAddress, int port)
+    {
+        string url = "http://" + ipAddress + ":" + port;
+        UnityWebRequest www = UnityWebRequest.Get(url);
         yield return www.SendWebRequest();
 
-        if (www.result != UnityWebRequest.Result.Success) {
-            UnityEngine.Debug.Log(www.error);
+        if (www.result != UnityWebRequest.Result.Success)
+        {
+            Debug.LogError("Error connecting to server: " + www.error);
         }
-        else {
+        else
+        {
             byte[] results = www.downloadHandler.data;
-            FileStream fs = new FileStream(SaveDirectory+"\\RestoredSaves.zip", FileMode.Create, FileAccess.Write);
-            fs.Write(results);
-            fs.Close();
-            if (Directory.Exists(SaveDirectory+"\\RestoreBackup")) Directory.Delete(SaveDirectory+"\\RestoreBackup", true);
-            Directory.Move(SaveDirectory+"\\Life", SaveDirectory+"\\RestoreBackup");
-            ZipUtility.UncompressFromZip(SaveDirectory+"\\RestoredSaves.zip", null, SaveDirectory+"\\Life");
-            File.Delete(SaveDirectory+"\\RestoredSaves.zip");
+            string restoredSavesPath = Path.Combine(saveDirectory, "RestoredSaves.zip");
+            File.WriteAllBytes(restoredSavesPath, results);
+            if (Directory.Exists(Path.Combine(saveDirectory, "RestoreBackup")))
+            {
+                Directory.Delete(Path.Combine(saveDirectory, "RestoreBackup"), true);
+            }
+            Directory.Move(Path.Combine(saveDirectory, "Life"), Path.Combine(saveDirectory, "RestoreBackup"));
+            ZipUtility.UncompressFromZip(Path.Combine(saveDirectory, "RestoredSaves.zip"), null, Path.Combine(saveDirectory, "Life"));
+            File.Delete(Path.Combine(saveDirectory, "RestoredSaves.zip"));
+            transform.Find("Status").GetComponent<Text>().text = "Successfully downloaded Save File!";
         }
     }
-    public void StartClient() { StartCoroutine(StartClientI()); }
 
-    public void StopServer() {
-        listener.Stop();
-        HostFiles = false;
-        GameObject.Find("Status").GetComponent<Text>().text = "Server stopped.";
+    public void StartServer(int port)
+    {
+        try
+        {
+            transform.Find("Status").GetComponent<Text>().text = "Zipping Save Files";
+            ZipUtility.CompressFolderToZip(Path.Combine(saveDirectory, "Life.zip"), null, Path.Combine(saveDirectory, "Life"));
+            transform.Find("Status").GetComponent<Text>().text = "Reading zip's bytes";
+            data = File.ReadAllBytes(Path.Combine(saveDirectory, "Life.zip"));
+        }
+        catch (IOException ex)
+        {
+            transform.Find("Status").GetComponent<Text>().text = "Error: " + ex.Message;
+            return;
+        }
+
+        transform.Find("Status").GetComponent<Text>().text = "Starting Server";
+        string privateIpAddress = "IP NOT FOUND";
+        foreach (var ip in Dns.GetHostEntry(Dns.GetHostName()).AddressList)
+        {
+            if (ip.AddressFamily == AddressFamily.InterNetwork)
+            {
+                privateIpAddress = ip.ToString();
+                break;
+            }
+        }
+
+        listener = new HttpListener();
+        listener.Prefixes.Add("http://*:" + port + "/");
+        listener.Prefixes.Add("http://" + privateIpAddress + ":" + port + "/");
+        listener.Prefixes.Add("http://127.0.0.1:" + port + "/");
+        listener.Prefixes.Add("http://localhost:" + port + "/");
+        listener.Start();
+
+        Task.Run(HandleRequests);
+
+        transform.Find("Status").GetComponent<Text>().text = "IP: " + privateIpAddress + "\nPort: " + port;
     }
 
-    public void OpenClient() {
+    public void StartClient()
+    {
+        string ipAddress = transform.Find("IP").GetComponent<InputField>().text;
+        string port = transform.Find("Port").GetComponent<InputField>().text;
+        int portNumber;
+        if (!int.TryParse(port, out portNumber))
+        {
+            Debug.LogError("Invalid port number!");
+            return;
+        }
+
+        StartCoroutine(StartClientCoroutine(ipAddress, portNumber));
+    }
+
+    public void StopServer()
+    {
+        if (listener != null && listener.IsListening)
+        {
+            listener.Stop();
+            hostFiles = false;
+            transform.Find("Status").GetComponent<Text>().text = "Server stopped.";
+        }
+    }
+
+    public void OpenClient()
+    {
         SceneManager.LoadScene("DataTransferTest");
     }
 
-    public void closeScreen() {
+    public void CloseScreen()
+    {
         gameObject.GetComponent<Canvas>().enabled = false;
     }
 
-    void Start() {
-        SaveDirectory = GameObject.Find("File").GetComponent<SaveFile>().GUPath;
+    private void Start()
+    {
+        saveDirectory = GameObject.Find("File").GetComponent<SaveFile>().GUPath;
     }
 }

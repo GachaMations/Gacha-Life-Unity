@@ -62,6 +62,8 @@ public class SceneFunctions : MonoBehaviour
                 StartCoroutine(Splash());
                 break;
             case "MainMenu":
+                gameObject.GetComponent<SpriteRenderer>().color = new Color(0, 0, 0, 1);
+                if (Saves.Load("Options.dat", "PreloadImages") == "true") Resources.LoadAll<Texture2D>("Assets/Backgrounds");
                 if (Saves.Load("PlayerData.dat", "CurrentCharacter") == "") Saves.Save("PlayerData.dat", "CurrentCharacter", "1");
                 StartCoroutine(FadeIn());
                 break;
@@ -75,7 +77,7 @@ public class SceneFunctions : MonoBehaviour
                     if(!GameObject.Find("Canvas").GetComponent<Canvas>().enabled && !GameObject.Find("Transfer").GetComponent<Canvas>().enabled)
                     {
                         if (EventSystem.current.IsPointerOverGameObject()) Transfer = true;
-                        GetComponent<AudioSource>().Play();
+                        GetComponent<AudioSource>().PlayOneShot(Resources.Load<AudioClip>("click"));
                         if (!skipTOS) GameObject.Find("Canvas").GetComponent<Canvas>().enabled = true;
                         else {
                             if (Transfer) {
@@ -104,7 +106,7 @@ public class SceneFunctions : MonoBehaviour
             newFile.AddComponent<SaveFile>();
             DontDestroyOnLoad(newFile);
         }
-        if (!GameObject.Find("FadeBG") || GameObject.Find("FadeBG") == gameObject) DontDestroyOnLoad(gameObject); else Destroy(gameObject);
+        if (!GameObject.Find("FadeBG") || GameObject.Find("FadeBG") == gameObject) DontDestroyOnLoad(gameObject); else { Destroy(gameObject); return; }
         Saves = GameObject.Find("File").GetComponent<SaveFile>();
         SceneManager.sceneLoaded += OnSceneLoaded;
     }

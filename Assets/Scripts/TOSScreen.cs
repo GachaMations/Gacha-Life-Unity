@@ -21,25 +21,23 @@ public class TOSScreen : MonoBehaviour
     }
     public void Confirm()
     {
-        Fade.GetComponent<AudioSource>().PlayOneShot(Resources.Load<AudioClip>("click_shorter"));
+        Fade.GetComponent<AudioSource>().PlayOneShot(Resources.Load<AudioClip>("click"));
         sFuncs.skipTOS = true;
         if (!sFuncs.Transfer) StartCoroutine(Menu());
         else {
             sFuncs.Transfer = false;
             GameObject.Find("Transfer").GetComponent<Canvas>().enabled = true;
             GetComponent<Canvas>().enabled = false;
-
-            SceneManager.LoadScene("DataTransferTest");
         }
     }
     public void Agree() {
         GameObject.Find("Continue").GetComponent<Button>().interactable = true;
-        Fade.GetComponent<AudioSource>().PlayOneShot(Resources.Load<AudioClip>("click_shorter"));
+        Fade.GetComponent<AudioSource>().PlayOneShot(Resources.Load<AudioClip>("click"));
         GameObject.Find("ButtonsVisual").GetComponent<Image>().sprite = Resources.Load<Sprite>("TOSAgree");
     }
     public void Disagree() {
         GameObject.Find("Continue").GetComponent<Button>().interactable = false;
-        Fade.GetComponent<AudioSource>().PlayOneShot(Resources.Load<AudioClip>("click_shorter"));
+        Fade.GetComponent<AudioSource>().PlayOneShot(Resources.Load<AudioClip>("click"));
         GameObject.Find("ButtonsVisual").GetComponent<Image>().sprite = Resources.Load<Sprite>("TOSDisagree");
     }
     void Awake() {

@@ -250,6 +250,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69ba7ffed0dd0fa44b0531d32b887b1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Transfer: 0
+  skipTOS: 0
 --- !u!212 &424216565
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -514,6 +516,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4878a4ef2891d814da850d0bd895e360, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GUPath: C:\Users\ginge\AppData\Roaming\GachaUnity
+  SaveDirectory: 
 --- !u!4 &1636692503
 Transform:
   m_ObjectHideFlags: 0
@@ -587,7 +591,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 9a322c8337bba3b40a12b688d0c64ca3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4e548ea788d047241a7aaec8ae20dc77, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
