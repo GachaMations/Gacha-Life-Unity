@@ -27,6 +27,8 @@ public class ChangeBackground : MonoBehaviour
         this.transform.parent.Find("PageNumber").GetComponent<Text>().text = "Page\n"+CurrentPage+"/"+MaxPages;
     }
     public void Open() {
+        CurrentPage = (int)Mathf.Ceil(float.Parse(saves.Load("Characters\\"+saves.Load("PlayerData.dat", "CurrentCharacter")+".oc", "BG"))/25);
+        RefreshPage();
         this.transform.parent.GetComponent<Canvas>().enabled = true;
         funcs.GetComponent<AudioSource>().PlayOneShot(Resources.Load<AudioClip>("click"));
     }
@@ -35,6 +37,7 @@ public class ChangeBackground : MonoBehaviour
         funcs.GetComponent<AudioSource>().PlayOneShot(Resources.Load<AudioClip>("cancel"));
     }
     public void MovePage(bool Right) {
+        funcs.GetComponent<AudioSource>().PlayOneShot(Resources.Load<AudioClip>("click"));
         if (Right) {
             if (CurrentPage == MaxPages) CurrentPage = 1;
             else CurrentPage++;

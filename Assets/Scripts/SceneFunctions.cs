@@ -3,6 +3,7 @@ using System.IO;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
 public class SceneFunctions : MonoBehaviour
@@ -53,6 +54,10 @@ public class SceneFunctions : MonoBehaviour
         SceneManager.LoadScene("MainMenu");
     }
 
+    public void ChangeCharacter() {
+        Saves.Save("PlayerData.dat", "CurrentCharacter", EventSystem.current.currentSelectedGameObject.name.Remove(0, 4));
+    }
+
     void OnSceneLoaded(Scene scene, LoadSceneMode mode) {
         switch (scene.name) {
             case "StartScreen":
@@ -77,7 +82,7 @@ public class SceneFunctions : MonoBehaviour
                     if(!GameObject.Find("Canvas").GetComponent<Canvas>().enabled && !GameObject.Find("Transfer").GetComponent<Canvas>().enabled)
                     {
                         if (EventSystem.current.IsPointerOverGameObject()) Transfer = true;
-                        GetComponent<AudioSource>().PlayOneShot(Resources.Load<AudioClip>("click"));
+                        GetComponent<AudioSource>().Play();
                         if (!skipTOS) GameObject.Find("Canvas").GetComponent<Canvas>().enabled = true;
                         else {
                             if (Transfer) {
@@ -91,9 +96,16 @@ public class SceneFunctions : MonoBehaviour
                 //GameObject.Find("Circle").transform.Rotate(0,0,-0.05f);               // WHY IS THE GAME'S IMAGE OFFSET??? WHAT???
                 break;
             case "MainMenu":
-                CharSlot = Saves.Load("PlayerData.dat", "CurrentCharacter");
+                CharSlot = Saves.Load("PlayerData.dat", "CurrentCharacter");   //I hate doing this so much. Reading and setting the background every frame is HORRIBLE, but I don't understand FileSystemWatcher.
                 if (Saves.Load("Characters\\"+CharSlot+".oc", "BG") == "") Saves.Save("Characters\\"+CharSlot+".oc", "BG", "1");
                 GameObject.Find("Background").GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/Backgrounds/"+Saves.Load("Characters\\"+CharSlot+".oc", "BG"));
+                foreach (Transform slot in GameObject.Find("Slots").transform) {
+                    if (slot.name.Remove(0, 4) == Saves.Load("PlayerData.dat", "CurrentCharacter")) {
+                        slot.GetComponent<Image>().sprite = Resources.Load<Sprite>("BoxSelected");
+                    } else {
+                        slot.GetComponent<Image>().sprite = Resources.Load<Sprite>("Box");
+                    }
+                }
                 break;
         }
     }
@@ -106,7 +118,7 @@ public class SceneFunctions : MonoBehaviour
             newFile.AddComponent<SaveFile>();
             DontDestroyOnLoad(newFile);
         }
-        if (!GameObject.Find("FadeBG") || GameObject.Find("FadeBG") == gameObject) DontDestroyOnLoad(gameObject); else { Destroy(gameObject); return; }
+        if (!GameObject.Find("FadeBG") || GameObject.Find("FadeBG") == gameObject) DontDestroyOnLoad(gameObject); else Destroy(gameObject);
         Saves = GameObject.Find("File").GetComponent<SaveFile>();
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
