@@ -17,4 +17,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/DataTransferTest.unity
     guid: fdd84112ef14cd54bae022d6f4d9b4b8
+  - enabled: 1
+    path: Assets/Scenes/Options.unity
+    guid: 7228ee4035d4b884d9875303cf876297
+  - enabled: 1
+    path: Assets/Scenes/TestScene.unity
+    guid: 84961c10ff6d63f41bcb0fac9fb0c702
   m_configObjects: {}

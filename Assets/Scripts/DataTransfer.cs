@@ -126,9 +126,9 @@ public class DataTransfer : MonoBehaviour
         }
     }
 
-    public void OpenClient()
+    public void OpenScreen()
     {
-        SceneManager.LoadScene("DataTransferTest");
+        gameObject.GetComponent<Canvas>().enabled = true;
     }
 
     public void CloseScreen()
@@ -139,5 +139,17 @@ public class DataTransfer : MonoBehaviour
     private void Start()
     {
         saveDirectory = GameObject.Find("File").GetComponent<SaveFile>().GUPath;
+        var privateIpAddress = "ERROR 2!";
+        if (SceneManager.GetActiveScene().name == "Options") {
+            foreach (var ip in Dns.GetHostEntry(Dns.GetHostName()).AddressList)
+            {
+                if (ip.AddressFamily == AddressFamily.InterNetwork)
+                {
+                    privateIpAddress = ip.ToString();
+                    break;
+                }
+            }
+            transform.Find("BG/IP/BG/Text").GetComponent<Text>().text = privateIpAddress;
+        }
     }
 }

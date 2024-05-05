@@ -72,6 +72,10 @@ public class SceneFunctions : MonoBehaviour
                 if (Saves.Load("PlayerData.dat", "CurrentCharacter") == "") Saves.Save("PlayerData.dat", "CurrentCharacter", "1");
                 StartCoroutine(FadeIn());
                 break;
+            case "Options":
+                gameObject.GetComponent<SpriteRenderer>().color = new Color(0, 0, 0, 1);
+                StartCoroutine(FadeIn());
+                break;
         }
     }
     void Update()
@@ -106,6 +110,11 @@ public class SceneFunctions : MonoBehaviour
                         slot.GetComponent<Image>().sprite = Resources.Load<Sprite>("Box");
                     }
                 }
+                break;
+            case "Options":
+                CharSlot = Saves.Load("PlayerData.dat", "CurrentCharacter");   //I hate doing this so much. Reading and setting the background every frame is HORRIBLE, but I don't understand FileSystemWatcher.
+                if (Saves.Load("Characters\\"+CharSlot+".oc", "BG") == "") Saves.Save("Characters\\"+CharSlot+".oc", "BG", "1");
+                GameObject.Find("Background").GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/Backgrounds/"+Saves.Load("Characters\\"+CharSlot+".oc", "BG"));
                 break;
         }
     }
