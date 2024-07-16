@@ -10,10 +10,9 @@ The main idea was for modding, and adding extra QOL features not present in the 
 You can clone the project and do whatever you'd like with it, but please don't take the project and mark it as your own. Removing my credits in the game is fine, just don't replace it with your own.
 
 # Why was there such a huge pause in development?
-
-I had 0 updates on this entire project for around 2 years. I mostly stopped working on it, as I had been very on and off about being in the Gacha community as a whole, and when I did work on this project, it was work on Gacha Club Unity, as it's the more advanced and popular game. I recently started working again on this, however, and am still actively making progress. Gacha Club Unity is currently a privated project, and doesn't really have much anyways. once Gacha Life Unity is fully released, the Gacha Club Unity project will be remade and will be put open source.
+I'm not very consistent with working on this project (like, I'll work on it for a few weeks non-stop, then just have a huge break from working on it), which resulted in this not really getting any updates for around 2 years. In the time I *WAS* occasionally working on Gacha Club Unity, but I thought I should finish the first game first. Plus, I need to completely rewrite and remake Gacha Club Unity anyways
 
 
 Unity Project Version: 2021.3.5f1
 
-Last readme update: 25/02/24
+Last readme update: 16/07/24
