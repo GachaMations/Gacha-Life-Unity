@@ -1,0 +1,3 @@
+[submodule "gacha-life-unity-chat-server"]
+	path = gacha-life-unity-chat-server
+	url = https://github.com/GachaMations/gacha-life-unity-chat-server
