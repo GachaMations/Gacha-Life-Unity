@@ -1,9 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 <<<<<<<< HEAD:Assets/Resources/Audio.meta
 guid: 4fb60418e7f933d4eab4371c2e23fc25
 ========
 guid: 4c18aadc176126c4198d64bc027dc5b7
 >>>>>>>> f74830a0d97e3a0604f6cb9123e51dd9af34e157:Assets/Resources/shapes.meta
+=======
+guid: 4c18aadc176126c4198d64bc027dc5b7
+>>>>>>> f74830a0d97e3a0604f6cb9123e51dd9af34e157
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
