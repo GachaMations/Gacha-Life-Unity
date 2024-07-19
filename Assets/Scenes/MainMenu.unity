@@ -351,11 +351,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 31951913}
   m_CullTransparentMesh: 1
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
->>>>>>> f74830a0d97e3a0604f6cb9123e51dd9af34e157
 --- !u!1 &40664884
 GameObject:
   m_ObjectHideFlags: 0
@@ -387,11 +382,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 642940680}
-<<<<<<< HEAD
   m_RootOrder: 0
-=======
-  m_RootOrder: 1
->>>>>>> f74830a0d97e3a0604f6cb9123e51dd9af34e157
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &40664886
 MonoBehaviour:
@@ -537,10 +528,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 47515510}
   m_CullTransparentMesh: 1
-<<<<<<< HEAD
-=======
->>>>>>> 6e661b3 (Spent 2 days adding a menu bar and Options. Anyways, Data Transfer server page is a thing now)
->>>>>>> f74830a0d97e3a0604f6cb9123e51dd9af34e157
 --- !u!1 &61098814
 GameObject:
   m_ObjectHideFlags: 0
@@ -1558,11 +1545,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-<<<<<<< HEAD
   m_RootOrder: 6
-=======
-  m_RootOrder: 5
->>>>>>> f74830a0d97e3a0604f6cb9123e51dd9af34e157
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &224729744
 GameObject:
@@ -2515,11 +2498,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-<<<<<<< HEAD
   m_RootOrder: 5
-=======
-  m_RootOrder: 4
->>>>>>> f74830a0d97e3a0604f6cb9123e51dd9af34e157
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &432104503
 GameObject:
@@ -3393,11 +3372,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 637003074}
   m_CullTransparentMesh: 1
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
->>>>>>> f74830a0d97e3a0604f6cb9123e51dd9af34e157
 --- !u!1 &642940679
 GameObject:
   m_ObjectHideFlags: 0
@@ -3426,14 +3400,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-<<<<<<< HEAD
   - {fileID: 40664885}
   m_Father: {fileID: 0}
-=======
-  - {fileID: 871171918}
-  - {fileID: 40664885}
-  m_Father: {fileID: 2062491178}
->>>>>>> f74830a0d97e3a0604f6cb9123e51dd9af34e157
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &701110403
@@ -3584,10 +3552,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 701110403}
   m_CullTransparentMesh: 1
-<<<<<<< HEAD
-=======
->>>>>>> 6e661b3 (Spent 2 days adding a menu bar and Options. Anyways, Data Transfer server page is a thing now)
->>>>>>> f74830a0d97e3a0604f6cb9123e51dd9af34e157
 --- !u!1 &721319475
 GameObject:
   m_ObjectHideFlags: 0
@@ -3632,11 +3596,6 @@ RectTransform:
   m_AnchoredPosition: {x: -736.27997, y: 46.98}
   m_SizeDelta: {x: 447.44, y: 879.24}
   m_Pivot: {x: 0.5, y: 0.5}
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
->>>>>>> f74830a0d97e3a0604f6cb9123e51dd9af34e157
 --- !u!1 &729435828
 GameObject:
   m_ObjectHideFlags: 0
@@ -3806,10 +3765,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 736968112}
   m_CullTransparentMesh: 1
-<<<<<<< HEAD
-=======
->>>>>>> 6e661b3 (Spent 2 days adding a menu bar and Options. Anyways, Data Transfer server page is a thing now)
->>>>>>> f74830a0d97e3a0604f6cb9123e51dd9af34e157
 --- !u!1 &747177931
 GameObject:
   m_ObjectHideFlags: 0
@@ -5452,11 +5407,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-<<<<<<< HEAD
   m_RootOrder: 4
-=======
-  m_RootOrder: 3
->>>>>>> f74830a0d97e3a0604f6cb9123e51dd9af34e157
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1001123931
 GameObject:
@@ -5781,11 +5732,7 @@ RectTransform:
   - {fileID: 1363785273}
   - {fileID: 1773219559}
   m_Father: {fileID: 0}
-<<<<<<< HEAD
   m_RootOrder: 9
-=======
-  m_RootOrder: 8
->>>>>>> f74830a0d97e3a0604f6cb9123e51dd9af34e157
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -7372,11 +7319,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-<<<<<<< HEAD
   m_RootOrder: 8
-=======
-  m_RootOrder: 7
->>>>>>> f74830a0d97e3a0604f6cb9123e51dd9af34e157
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1340902148
 GameObject:
@@ -7993,11 +7936,7 @@ RectTransform:
   - {fileID: 1538838746}
   - {fileID: 417474897}
   m_Father: {fileID: 0}
-<<<<<<< HEAD
   m_RootOrder: 1
-=======
-  m_RootOrder: 0
->>>>>>> f74830a0d97e3a0604f6cb9123e51dd9af34e157
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -8221,11 +8160,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-<<<<<<< HEAD
   m_RootOrder: 2
-=======
-  m_RootOrder: 1
->>>>>>> f74830a0d97e3a0604f6cb9123e51dd9af34e157
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1443528890
 GameObject:
@@ -8667,11 +8602,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-<<<<<<< HEAD
   m_Sprite: {fileID: 21300000, guid: 2c21e8cd56f1aee4ba130748adfc61af, type: 3}
-=======
-  m_Sprite: {fileID: 21300000, guid: d412e4a0196a4b449b341bf7cc733610, type: 3}
->>>>>>> f74830a0d97e3a0604f6cb9123e51dd9af34e157
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -8847,11 +8778,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-<<<<<<< HEAD
   m_RootOrder: 3
-=======
-  m_RootOrder: 2
->>>>>>> f74830a0d97e3a0604f6cb9123e51dd9af34e157
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1580638721
 GameObject:
@@ -11424,11 +11351,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-<<<<<<< HEAD
   m_RootOrder: 7
-=======
-  m_RootOrder: 6
->>>>>>> f74830a0d97e3a0604f6cb9123e51dd9af34e157
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2132022101
 GameObject:
