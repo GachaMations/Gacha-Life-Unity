@@ -40,6 +40,8 @@ public class Options : MonoBehaviour
         } else ClickAction.Invoke();
     }
 
+    public void openTransfer() { GameObject.Find("Menus/Transfer").GetComponent<Canvas>().enabled = true; }
+    public void closeTransfer() { GameObject.Find("Menus/Transfer").GetComponent<Canvas>().enabled = false; }
     public void openCredits() { GameObject.Find("Menus/Credits").GetComponent<Canvas>().enabled = true; }
     public void closeCredits() { GameObject.Find("Menus/Credits").GetComponent<Canvas>().enabled = false; }
     public void openMusic() { GameObject.Find("Menus/CreditsMusic").GetComponent<Canvas>().enabled = true; }

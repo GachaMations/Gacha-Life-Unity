@@ -128,15 +128,6 @@ public class DataTransfer : MonoBehaviour
         }
     }
 
-    public void OpenScreen()
-    {
-        gameObject.GetComponent<Canvas>().enabled = true;
-    }
-
-    public void CloseScreen()
-    {
-        gameObject.GetComponent<Canvas>().enabled = false;
-    }
 
     private void Start()
     {

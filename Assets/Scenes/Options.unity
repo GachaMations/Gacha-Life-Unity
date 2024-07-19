@@ -2823,7 +2823,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 890727262}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 1
   m_Camera: {fileID: 1564481392}
@@ -3045,9 +3045,9 @@ MonoBehaviour:
   ClickAction:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1328549190}
-        m_TargetAssemblyTypeName: DataTransfer, Assembly-CSharp
-        m_MethodName: OpenScreen
+      - m_Target: {fileID: 909452949}
+        m_TargetAssemblyTypeName: Options, Assembly-CSharp
+        m_MethodName: openTransfer
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5175,9 +5175,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1328549190}
-        m_TargetAssemblyTypeName: DataTransfer, Assembly-CSharp
-        m_MethodName: CloseScreen
+      - m_Target: {fileID: 909452949}
+        m_TargetAssemblyTypeName: Options, Assembly-CSharp
+        m_MethodName: closeTransfer
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
