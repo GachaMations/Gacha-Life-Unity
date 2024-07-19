@@ -60,7 +60,7 @@ public class DataTransfer : MonoBehaviour
             Directory.Move(Path.Combine(saveDirectory, "Life"), Path.Combine(saveDirectory, "RestoreBackup"));
             ZipUtility.UncompressFromZip(Path.Combine(saveDirectory, "RestoredSaves.zip"), null, Path.Combine(saveDirectory, "Life"));
             File.Delete(Path.Combine(saveDirectory, "RestoredSaves.zip"));
-            transform.Find("Start/Text").GetComponent<Text>().text = "Successfully downloaded Save File!";
+            transform.Find("Status").GetComponent<Text>().text = "Successfully downloaded Save File!";
         }
     }
 
