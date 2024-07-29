@@ -27,7 +27,7 @@ And probably more i've forgotten.<br><br>
 I'm not very consistent with working on this project (like, I'll work on it for a few weeks non-stop, then just have a huge break from working on it), which resulted in this not really getting any updates for around 2 years. In the time I *WAS* occasionally working on Gacha Club Unity, but I thought I should finish the first game first. Plus, I need to completely rewrite and remake Gacha Club Unity anyways
 
 # Contributing
-This project is COMPLETELY open source. All the code currently seen in the repository is 1:1 with the code used to build the official release. I have not hidden any details.
+This project is COMPLETELY open source. All the code currently seen in the repository is 1:1 with the code used to build the official release. I currently do not use any keys for external software, but if I eventually end up needing any, a guide for getting a key and adding it to he project will be provided.
 If you would like to view this game in the editor, the current unity version is 2021.3.5f1. If you have not used unity before, you simply have to download Unity Hub from unity's website, then in the archive, download the version listed above. You can then clone this repository, and open it in unity.
 
 Contribution of any kind is highly appriciated. If you have coding knowledge, then fixing bugs, rewriting bad code, resolving bugs, or even just making mods is one way to SERIOUSLY help the project, but even if you don't, submitting bugs or feature requests / improvements on the [issues](https://github.com/GachaMations/Gacha-Life-Unity/issues) page will greatly help too.
