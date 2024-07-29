@@ -15,18 +15,25 @@ As of right now, I mainly plan on simply finishing the Unity recreation of Gacha
 
 Currently planned features:
 
-- Data transfer over wifi (complete)<br>
-- Support for all devices (Windows, Mac, Linux, Mobile, etc)<br>
-- Mod Support (2 types: Asset modding and Code modding)<br>
-- New skits system (Have it as a full frame-by-frame video maker, with exporting video out)<br>
-- Allow importing and exporting of a lot more data (individual studio scenes, characters, skits, etc)<br>
+[x] Data transfer over wifi (complete)<br>
+[] Support for all devices (Windows, Mac, Linux, Mobile, etc)<br>
+[] Mod Support (2 types: Asset modding and Code modding)<br>
+[] New skits system (Have it as a full frame-by-frame video maker, with exporting video out)<br>
+[] Allow importing and exporting of a lot more data (individual studio scenes, characters, skits, etc)<br>
 
 And probably more i've forgotten.<br><br>
 
 # Why was there such a huge pause in development?
 I'm not very consistent with working on this project (like, I'll work on it for a few weeks non-stop, then just have a huge break from working on it), which resulted in this not really getting any updates for around 2 years. In the time I *WAS* occasionally working on Gacha Club Unity, but I thought I should finish the first game first. Plus, I need to completely rewrite and remake Gacha Club Unity anyways
 
+# Contributing
+This project is COMPLETELY open source. All the code currently seen in the repository is 1:1 with the code used to build the official release. I have not hidden any details.
+If you would like to view this game in the editor, the current unity version is 2021.3.5f1. If you have not used unity before, you simply have to download Unity Hub from unity's website, then in the archive, download the version listed above. You can then clone this repository, and open it in unity.
+
+Contribution of any kind is highly appriciated. If you have coding knowledge, then fixing bugs, rewriting bad code, resolving bugs, or even just making mods is one way to SERIOUSLY help the project, but even if you don't, submitting bugs or feature requests / improvements on the [issues](https://github.com/GachaMations/Gacha-Life-Unity/issues) page will greatly help too.
+
+# Quick Info
 
 Unity Project Version: 2021.3.5f1
 
-Last README update: 28/04/24
+Last README update: 29/07/24

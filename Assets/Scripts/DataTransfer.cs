@@ -60,7 +60,7 @@ public class DataTransfer : MonoBehaviour
             Directory.Move(Path.Combine(saveDirectory, "Life"), Path.Combine(saveDirectory, "RestoreBackup"));
             ZipUtility.UncompressFromZip(Path.Combine(saveDirectory, "RestoredSaves.zip"), null, Path.Combine(saveDirectory, "Life"));
             File.Delete(Path.Combine(saveDirectory, "RestoredSaves.zip"));
-            transform.Find("Status").GetComponent<Text>().text = "Successfully downloaded Save File!";
+            transform.Find("Start").GetComponent<Text>().text = "Successfully Downloaded!";
         }
     }
 
@@ -69,7 +69,7 @@ public class DataTransfer : MonoBehaviour
         int port;
         try
         {
-            port = int.Parse(GameObject.Find("Port").GetComponent<InputField>().text);
+            port = int.Parse(transform.Find("BG/Port").GetComponent<InputField>().text);
             transform.Find("Start/Text").GetComponent<Text>().text = "Zipping Save Files";
             ZipUtility.CompressFolderToZip(Path.Combine(saveDirectory, "Life.zip"), null, Path.Combine(saveDirectory, "Life"));
             transform.Find("Start/Text").GetComponent<Text>().text = "Reading zip's bytes";
@@ -101,13 +101,13 @@ public class DataTransfer : MonoBehaviour
 
         Task.Run(HandleRequests);
 
-        transform.Find("Start/Text").GetComponent<Text>().text = "Transfer Data (s)";
+        transform.Find("Start/Text").GetComponent<Text>().text = "Server Running!";
     }
 
     public void StartClient()
     {
-        string ipAddress = transform.Find("IP").GetComponent<InputField>().text;
-        string port = transform.Find("Port").GetComponent<InputField>().text;
+        string ipAddress = transform.Find("BG/IP").GetComponent<InputField>().text;
+        string port = transform.Find("BG/Port").GetComponent<InputField>().text;
         int portNumber;
         if (!int.TryParse(port, out portNumber))
         {
@@ -128,6 +128,10 @@ public class DataTransfer : MonoBehaviour
         }
     }
 
+    public void CloseScreen()
+    {
+        gameObject.GetComponent<Canvas>().enabled = false;
+    }
 
     private void Start()
     {

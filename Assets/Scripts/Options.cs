@@ -39,7 +39,9 @@ public class Options : MonoBehaviour
             updateText();
         } else ClickAction.Invoke();
     }
-
+    public void ToggleFullscreen() {
+        Screen.fullScreen = !Screen.fullScreen;
+    }
     public void openTransfer() { GameObject.Find("Menus/Transfer").GetComponent<Canvas>().enabled = true; }
     public void closeTransfer() { GameObject.Find("Menus/Transfer").GetComponent<Canvas>().enabled = false; }
     public void openCredits() { GameObject.Find("Menus/Credits").GetComponent<Canvas>().enabled = true; }
@@ -48,4 +50,7 @@ public class Options : MonoBehaviour
     public void closeMusic() { GameObject.Find("Menus/CreditsMusic").GetComponent<Canvas>().enabled = false; }
     public void openNpc() { GameObject.Find("Menus/CreditsMusic").GetComponent<Canvas>().enabled = true; }
     public void closeNpc() { GameObject.Find("Menus/CreditsMusic").GetComponent<Canvas>().enabled = false; }
+    public void openSaves() {
+        System.Diagnostics.Process.Start("explorer.exe","/select,"+GameObject.Find("File").GetComponent<SaveFile>().SaveDirectory);
+    }
 }

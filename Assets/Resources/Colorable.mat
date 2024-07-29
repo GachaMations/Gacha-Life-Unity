@@ -59,7 +59,9 @@ Material:
     m_Ints: []
     m_Floats:
     - PixelSnap: 0
-    - _BlendThreshold: 0.7
+    - _BUILTIN_QueueControl: 0
+    - _BUILTIN_QueueOffset: 0
+    - _BlendThreshold: 0.811
     - _BlendThreshold1: 0.59
     - _BlendThreshold2: 0
     - _BumpScale: 1
@@ -82,6 +84,7 @@ Material:
     - _StencilOp: 0
     - _StencilReadMask: 255
     - _StencilWriteMask: 255
+    - _Strength: 0.2
     - _UVSec: 0
     - _UseUIAlphaClip: 0
     - _ZWrite: 1
@@ -90,7 +93,15 @@ Material:
     - _Color1: {r: 0.9803922, g: 0.87058824, b: 0.27450982, a: 1}
     - _Color2: {r: 0.87843144, g: 0.43921572, b: 0.48627454, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _RemapColor1: {r: 0.40912294, g: 0, b: 1, a: 1}
-    - _RemapColor2: {r: 0, g: 1, b: 0.89485645, a: 1}
+    - _Original_Color_1: {r: 0.8980393, g: 0.5215687, b: 0.4470589, a: 1}
+    - _Original_Color_2: {r: 0.9803922, g: 0.8588236, b: 0.2784314, a: 1}
+    - _Original_Color_3: {r: 0.8980393, g: 0.5215687, b: 0.4470589, a: 1}
+    - _Original_Color_4: {r: 0, g: 1, b: 0.1282372, a: 0}
+    - _RemapColor1: {r: 0.56559277, g: 0.58274627, b: 0.7735849, a: 1}
+    - _RemapColor2: {r: 0.05322181, g: 0.8679245, b: 0.10898119, a: 1}
+    - _Remap_Color_1: {r: 0, g: 0.5054994, b: 1, a: 0}
+    - _Remap_Color_2: {r: 0, g: 1, b: 0.1282372, a: 0}
+    - _Remap_Color_3: {r: 0.9803922, g: 0.8588236, b: 0.2784314, a: 1}
+    - _Remap_Color_4: {r: 0, g: 0.5054994, b: 1, a: 0}
     - _ToReplace: {r: 0.97647065, g: 0.854902, b: 0.28235295, a: 1}
   m_BuildTextureStacks: []

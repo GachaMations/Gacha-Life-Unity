@@ -65,7 +65,10 @@ Shader "Custom/ColorRemap"
             fixed4 frag (v2f i) : SV_Target
             {
                 fixed4 texColor = tex2D(_MainTex, i.uv);
-                if (texColor.a == 0 || (texColor.r < _BlendThreshold && texColor.g < _BlendThreshold && texColor.b < _BlendThreshold)) {
+                if (texColor.a < 0.4) {
+                    return fixed4(0,0,0,0);
+                }
+                if (texColor.r < _BlendThreshold && texColor.g < _BlendThreshold && texColor.b < _BlendThreshold) {
                     return texColor;
                 }
                 float originalGradient = dot(texColor.rgb - _Color1.rgb, _Color2.rgb - _Color1.rgb) / dot(_Color2.rgb - _Color1.rgb, _Color2.rgb - _Color1.rgb);
