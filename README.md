@@ -16,10 +16,10 @@ As of right now, I mainly plan on simply finishing the Unity recreation of Gacha
 Currently planned features:
 
 - [x] Data transfer over wifi (complete)<br>
-- [] Support for all devices (Windows, Mac, Linux, Mobile, etc)<br>
-- [] Mod Support (2 types: Asset modding and Code modding)<br>
-- [] New skits system (Have it as a full frame-by-frame video maker, with exporting video out)<br>
-- [] Allow importing and exporting of a lot more data (individual studio scenes, characters, skits, etc)<br>
+- [ ] Support for all devices (Windows, Mac, Linux, Mobile, etc)<br>
+- [ ] Mod Support (2 types: Asset modding and Code modding)<br>
+- [ ] New skits system (Have it as a full frame-by-frame video maker, with exporting video out)<br>
+- [ ] Allow importing and exporting of a lot more data (individual studio scenes, characters, skits, etc)<br>
 
 And probably more i've forgotten.<br><br>
 
